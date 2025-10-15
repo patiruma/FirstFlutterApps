@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'favorites_page.dart';
 import 'generator_page.dart';
+import 'favorites_clear_page.dart';
 
 class NavigationPanel extends StatefulWidget {
   @override
@@ -18,6 +19,8 @@ class _NavigationPanelState extends State<NavigationPanel> {
         page = GeneratorPage();
       case 1:
         page = FavoritesPage();
+      case 2:
+        page = FavoritesClearPage();
       default:
         throw UnimplementedError('No widget for $selectedIndex');
     }
@@ -37,6 +40,10 @@ class _NavigationPanelState extends State<NavigationPanel> {
                     NavigationRailDestination(
                       icon: Icon(Icons.favorite),
                       label: Text('Favorites'),
+                    ),
+                    NavigationRailDestination(
+                      icon: Icon(Icons.delete_forever),
+                      label: Text('Clear Favorites'),
                     ),
                   ],
                   selectedIndex: selectedIndex,
