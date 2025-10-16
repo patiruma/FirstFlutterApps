@@ -10,6 +10,7 @@ class MyAppState extends ChangeNotifier {
   }
 
   var favorites = <WordPair>[];
+
   void toggleFavorite() {
     if (favorites.contains(current)) {
       favorites.remove(current);
@@ -21,6 +22,11 @@ class MyAppState extends ChangeNotifier {
 
   void clearFavorites() {
     favorites.clear();
+    notifyListeners();
+  }
+
+  void removeFavorite(WordPair pair) {
+    favorites.remove(pair);
     notifyListeners();
   }
 }

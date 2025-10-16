@@ -57,6 +57,22 @@ class FavoritesPage extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.titleMedium,
                             ),
+                            SizedBox(height: 12),
+                            // Delete button centered below the text
+                            Align(
+                              alignment: Alignment.center,
+                              child: IconButton(
+                                icon: Icon(Icons.delete),
+                                color: Theme.of(context).colorScheme.error,
+                                tooltip: 'Remove',
+                                onPressed: () {
+                                  // Use read to avoid subscribing to changes from inside the callback
+                                  context.read<MyAppState>().removeFavorite(
+                                    pair,
+                                  );
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       ),
